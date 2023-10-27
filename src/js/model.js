@@ -19,7 +19,7 @@ const createRecipeObject = function (data) {
     title: recipe.title,
     publisher: recipe.publisher,
     sourceUrl: recipe.source_url,
-    image: recipe.image_url,
+    image: recipe.image_url.replace('http', 'https'),
     servings: recipe.servings,
     cookingTime: recipe.cooking_time,
     ingredients: recipe.ingredients,
@@ -56,7 +56,7 @@ export const loadSearchResults = async function (query) {
         id: rec.id,
         title: rec.title,
         publisher: rec.publisher,
-        sourceUrl: rec.source_url,
+        sourceUrl: rec.source_url.replace('http', 'https'),
         image: rec.image_url,
         ...(rec.key && { key: rec.key }),
       };
